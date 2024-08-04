@@ -12,6 +12,7 @@ import utilities.SeleniumUtils;
 
 public class LoginSteps {
     WebDriver driver = Driver.getDriver();
+    public Login
     public LoginPage loginPage = new LoginPage(driver);
 
     @Given("user on the login page")

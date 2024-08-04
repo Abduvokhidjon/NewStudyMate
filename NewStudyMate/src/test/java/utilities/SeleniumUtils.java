@@ -1,5 +1,8 @@
 package utilities;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 public class SeleniumUtils {
 
 
@@ -13,4 +16,6 @@ public class SeleniumUtils {
     }
 
 
+    public static void waitForElementTobeVisible(WebElement role, WebDriver driver, int i) {
+    }
 }
