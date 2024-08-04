@@ -20,6 +20,14 @@ public class LoginPage {
     @FindBy(xpath = "//p[@class='sc-lbVpMG cebUWf']")
     private WebElement role;
 
+    @FindBy(xpath = "//p[@class='sc-dkrFOg hbyUzQ']")
+    private WebElement warningMessage;
+
+    public String getWarningMsg(){
+        SeleniumUtils.waitForElementTobeVisible(warningMessage, driver, 10);
+        return warningMessage.getText();
+    }
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);

@@ -17,8 +17,8 @@ public class SchedulePageSteps extends SchedulePage {
     }
     @Given("user logs in")
     public void user_logs_in() {
-        LoginPage lp = new LoginPage();
-        lp.loginWithValidCredentials("abduvohidabdujamolov@gmail.com","A123456789");
+        LoginPage lp = new LoginPage(driver);
+        lp.logIn("abduvohidabdujamolov@gmail.com","A123456789");
     }
     @Given("User clicks on Schedule Page")
     public void user_clicks_on_schedule_page()  {
