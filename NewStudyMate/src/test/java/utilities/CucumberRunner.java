@@ -9,9 +9,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"html:target/cucumberReport.html", "json:target/testReport.json"},
         features = "src/test/resources/features",
-        glue = "step_definitions",
-        tags = "@Abduvohid",
-        dryRun = false
+        glue = "step_definitions"
+
 )
 
 

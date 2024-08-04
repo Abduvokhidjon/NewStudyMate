@@ -12,12 +12,12 @@ import utilities.SeleniumUtils;
 
 public class LoginSteps {
     WebDriver driver = Driver.getDriver();
-    public Login
-    public LoginPage loginPage = new LoginPage(driver);
+
+    LoginPage loginPage = new LoginPage(driver);
 
     @Given("user on the login page")
     public void user_on_the_login_page() {
-        driver.get(Config.getValue("URL"));
+        driver.get(Config.getProperty("URL"));
     }
 
     @When("user enters {string} email")
@@ -38,11 +38,12 @@ public class LoginSteps {
     @Then("user url should be different")
     public void user_url_should_be_different() {
         SeleniumUtils.waitForElementTobeVisible(loginPage.getRoleWebElement(), driver, 10);
-        String currentUrl = drivers.getCurrentUrl();
-        Assert.assertNotEquals(Config.getValue("URL"), currentUrl);
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertNotEquals(Config.getProperty("URL"), currentUrl);
     }
-    @And("close browser")
-    public void close_browser() {
-        Driver.close();
+
+    @Then("user should see {string} warning")
+    public void user_should_see_warning(String message) {
+        Assert.assertEquals(message, loginPage.getWarningMsg());
     }
 }

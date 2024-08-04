@@ -1,3 +1,5 @@
+package pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -6,6 +8,11 @@ import utilities.SeleniumUtils;
 
 public class LoginPage {
     WebDriver driver;
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
 
     @FindBy(xpath = "//input[@autocomplete='username']")
     private WebElement loginInput;
@@ -18,10 +25,14 @@ public class LoginPage {
     @FindBy(xpath = "//p[@class='sc-lbVpMG cebUWf']")
     private WebElement role;
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    @FindBy(xpath = "//p[@class='sc-dkrFOg hbyUzQ']")
+    private WebElement warningMessage;
+
+    public String getWarningMsg(){
+        SeleniumUtils.waitForElementTobeVisible(warningMessage, driver, 10);
+        return warningMessage.getText();
     }
+
     public void enterLogin(String login){
         loginInput.sendKeys(login);
     }
@@ -44,3 +55,4 @@ public class LoginPage {
         SeleniumUtils.waitForElementTobeVisible(role,driver,10);
     }
 }
+
