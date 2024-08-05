@@ -55,4 +55,59 @@ public class SchedulePageSteps extends SchedulePage {
         String urlAfterLogout = driver.getCurrentUrl();
         Assert.assertEquals(urlAfterLogout, urlLoginPage);
     }
+
+    /////////////////////////////////
+
+    @When("user clicks on kufhk button")
+    public void user_clicks_on_kufhk_button() {
+        knbkdButton.click();
+    }
+    @Then("the URL should be different then schedule page URL")
+    public void the_url_should_be_different_then_schedule_page_url() {
+        String oldURL = "https://batch-6.studymate.us/student/schedule";
+        Assert.assertFalse(driver.getCurrentUrl().toString().equals(oldURL));
+    }
+
+    @When("user click on month button")
+    public void user_click_on_month_button() {
+        SchedulePage schedulePage = new SchedulePage();
+        schedulePage.dropdown.click();
+        schedulePage.monthDropdown.click();
+
+    }
+    @Then("user should see planned schedule notes")
+    public void user_should_see_planned_schedule_notes() {
+        Assert.assertEquals(testScheduleNote.getText(),"Test Shedule");
+    }
+
+
+    @When("user clicks switch month to week")
+    public void user_clicks_switch_month_to_week() {
+        SchedulePage schedulePage = new SchedulePage();
+        schedulePage.dropdown.click();
+        schedulePage.weekDropdown.click();
+    }
+    @Then("user should see notes for one week")
+    public void user_should_see_notes_for_one_week() {
+        Assert.assertEquals(getTestScheduleNoteWeek.getText(), "Test Shedule");
+    }
+
+
+
+
+    @When("user click on day button")
+    public void user_click_on_day_button() {
+        SchedulePage schedulePage = new SchedulePage();
+        schedulePage.dropdown.click();
+        schedulePage.dayDropdown.click();
+    }
+    @Then("user should see notes for one day")
+    public void user_should_see_notes_for_one_day() {
+        Assert.assertEquals(getTestScheduleNoteWeek.getText(), "Test Shedule");
+    }
+
+
+
+
+
 }
