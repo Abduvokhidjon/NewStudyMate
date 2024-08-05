@@ -17,7 +17,7 @@ public class SchedulePage {
     @FindBy(xpath = "(//li[contains(@class,'MuiListIte')])[2]")
     public WebElement scheduleBtn;
 
-    @FindBy(xpath = "//div[@class=\"MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb\"]")
+    @FindBy(xpath = "//div[@aria-haspopup=\"listbox\"]")
     public WebElement dropdown;
 
     @FindBy (xpath = "//li[@data-value=\"dayGridMonth\"]")
@@ -32,6 +32,14 @@ public class SchedulePage {
     @FindBy (xpath = "//p[@class=\"sc-jIILKH eSCqcV\"]")
     public WebElement monthlyText;
 
-    @FindBy (xpath = "//button[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium sc-eKJbhj kWQXzA css-1ua49gz\"][2]")
-    public WebElement moveForward;
+    //    @FindBy (xpath = "//button[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium sc-eKJbhj kWQXzA css-1ua49gz\"][2]")
+//    public WebElement moveForward;
+    @FindBy(xpath = "//div[@class=\"sc-iveFHk kqpnEj\"]")
+    public WebElement knbkdButton;
+    @FindBy(xpath = "(//p[@class=\"sc-kImNAt hesVgy\"])[1]")
+    public WebElement testScheduleNote;
+    @FindBy(xpath = "//p[@class=\"sc-kImNAt hesVgy\"]")
+    public WebElement getTestScheduleNoteWeek;
+
+
 }
